@@ -1,3 +1,5 @@
+from portfolio.metrics import calculate_asset_value, calculate_portfolio_value
+
 def print_report(portfolio: list[dict]) -> None:
     total = calculate_portfolio_value(portfolio)
     print(f"PORTFOLIO SUMMARY\nPortfolio Name: {portfolio["name"]}")
@@ -10,6 +12,3 @@ def calculate_portfolio_value(portfolio: dict) -> float:
     for asset in portfolio["assets"]:
         total += calculate_asset_value(asset)
     return total
-
-def calculate_asset_value(asset: dict) -> float:
-    return asset["price"] * asset["quantity"]
